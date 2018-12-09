@@ -7,9 +7,9 @@ def frame(text, char)
   ret=[]
   ret.push(char*length)
 
-  text.each{|x| ret.push("#{char} #{x}#{" "*(length-x.length-3)}#{char}")}
+  text.each{|x| ret.push("#{char} #{x}#{" "*(x.length+4-(length))} #{char}")}
   ret.push(char*length)
   ret.each{|x| puts x}
 end
 
-p frame(["small","frame"], "+")
+p frame(["small","frame","larger","frame"], "+")
