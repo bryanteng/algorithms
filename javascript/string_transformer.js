@@ -10,7 +10,15 @@
 // You may assume the input only contain English alphabet and spaces.
 
 function stringTransformer(str) {
-  return str.split(" ").map( str =>{
-	return str.split("").map(letter=> letter == letter.toLocaleUpperCase() ? letter.toLocaleLowerCase() : letter.toLocaleUpperCase()).join("")
-	}).reverse().join(" ")
+  return str.split(" ").map( str => wordCaseSwap(str)).reverse().join(" ")
 }
+
+function wordCaseSwap(word){
+  return word.split("").map(letter=> swapCase(letter) ).join("")
+}
+
+function swapCase(letter){
+  return letter == letter.toLocaleUpperCase() ? letter.toLocaleLowerCase() : letter.toLocaleUpperCase()
+}
+
+console.log(stringTransformer('Example string') === 'STRING eXAMPLE');
