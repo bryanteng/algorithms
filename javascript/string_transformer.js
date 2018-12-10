@@ -9,6 +9,12 @@
 //
 // You may assume the input only contain English alphabet and spaces.
 
+// function stringTransformer(str) {
+//   return str.split(" ").map( str =>{
+// 	return str.split("").map(letter=> letter == letter.toLocaleUpperCase() ? letter.toLocaleLowerCase() : letter.toLocaleUpperCase()).join("")
+// 	}).reverse().join(" ")
+// }
+
 function stringTransformer(str) {
   return str.split(" ").map( str => wordCaseSwap(str)).reverse().join(" ")
 }
