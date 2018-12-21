@@ -20,3 +20,4 @@ def direction_reducer(a)
   horizontal < 0 ? horizontal.abs.times do ret.push("WEST") end : nil
   ret
 end
+  
