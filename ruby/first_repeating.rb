@@ -10,20 +10,13 @@
 
 def  first_non_repeating_letter(s)
   string_hash= {}
-  s.split("").each do |x|
-    if string_hash[x.downcase]
-      string_hash[x.downcase] +=1
-    else
-      string_hash[x.downcase] = 1
-    end
-
+  s.chars.each do |x|
+  string_hash[x.downcase] ? string_hash[x.downcase] +=1 : string_hash[x.downcase] = 1
   end
 
   index = 0
   while index < s.length
-    if string_hash[s[index].downcase] == 1
-      return s[index]
-    end
+    return s[index] if string_hash[s[index].downcase] == 1
     index+=1
   end
   return ""
