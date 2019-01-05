@@ -13,7 +13,6 @@ def  first_non_repeating_letter(s)
   s.chars.each do |x|
   string_hash[x.downcase] ? string_hash[x.downcase] +=1 : string_hash[x.downcase] = 1
   end
-
   index = 0
   while index < s.length
     return s[index] if string_hash[s[index].downcase] == 1
