@@ -7,5 +7,9 @@
 # The passed in string will only consist of alphabetical characters and spaces(' '). Spaces will only be present if there are multiple words. Words will be separated by a single space(' ').
 
 def weirdcase string
-  string.split(" ").map{|word| word.split("").map.with_index{|letter,index| index % 2 == 0 ? letter.upcase : letter.downcase }.join()}.join(" ")
+  string.split(" ").map{|word| toWeirdCase(word)}.join(" ")
+end
+
+def toWeirdCase word
+  word.split("").map.with_index{|letter,index| index % 2 == 0 ? letter.upcase : letter.downcase }.join()
 end
