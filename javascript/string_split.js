@@ -10,14 +10,11 @@
 
  function solution(str){
    let res = []
-     if(str.length % 2 == 1){
-       str += "_"
-     }
-
+     if(str.length % 2 == 1) str += "_"
      index = 0
      while(index < str.length){
        res.push(str.slice(index, index+2))
        index+=2
      }
-     return res
+   return res
  }
