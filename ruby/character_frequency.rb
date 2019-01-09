@@ -3,18 +3,11 @@
 # t:4, h:1, i:3, ... etc.. don't count " ":4
 
 def character_frequency(string)
-
-  character_hash = Hash.new(0)
+  character_hash = {}
   string.chars.each do |character|
-    if character != " "
-      if character_hash[character]
-        character_hash[character] = character_hash[character] + 1
-      else
-        character_hash[character] = 1
-      end
-    end
+    character_hash[character] ? character_hash[character] += 1 : character_hash[character] = 1 if character != " "
   end
-  return character_hash
+  character_hash
 end
 
  p character_frequency("this is a test string")
