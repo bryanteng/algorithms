@@ -17,19 +17,15 @@
 function nextVersion(version){
     let temp = version.split(".").reverse()
     if(temp.length ==1) return `${+temp[0]+1}`
-    let temp_l = temp.length-1
-    temp = temp.map((num,index) => {
+    return temp.map((num,index) => {
         if(index == 0){
-          if(+num == 9 ){
+            if(+num == 9 ){
             temp[index+1] = `${+temp[index+1] +1}`
             return "0"
-          }else{
-            return `${+num+1}`
-          }
-          }else if(num == 10 && index != temp_l){
+            }else return `${+num+1}`
+        }else if(num == 10 && index != temp.length-1){
             temp[index+1] = `${+temp[index+1] +1}`
             return "0"
-          }else return num
-      })
-    return temp.reverse().join(".")
-  }
+        }else return num
+        }).reverse().join(".")
+    }  
