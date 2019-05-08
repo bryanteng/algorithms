@@ -12,13 +12,7 @@ public class Kata
 {
     public int ReverseNumber(int n)
     {
-      string reverse="";
-      string nString = Convert.ToString(n);
-      for(int i = nString.Length-1; i>=0;i--){
-        if(nString[i] == '-'){
-          reverse = "-"+reverse;
-        }else reverse+=nString[i];
-      }      
-        return Convert.ToInt32(reverse);    
+      string reverse= String.Join("",Math.Abs(n).ToString().Reverse());
+      return Convert.ToInt32(reverse)*(n<0 ? -1: 1); 
       }
 }
