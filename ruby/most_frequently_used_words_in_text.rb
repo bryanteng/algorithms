@@ -20,15 +20,6 @@
 # # => ["e", "ddd", "aa"]
 
 def top_3_words(text)
-puts text
-  text = text.gsub(/[:,.!?\/]/, "").split(" ").map{|x| x.downcase}.select{|x| x!= "'"}
-  ret = text.sort_by{|x| text.count(x)}.uniq
-  if ret.length >=3
-    return ret[-3..-1].reverse
-  elsif ret.length > 0
-    return ret.reverse
-  else
-    return []
-  end
-
+  text = text.gsub(/[:,.!?\/]/, "").split(" ").map{|x| x.downcase}.select{|x| x!= "'" && x!="'''"}
+  ret = text.sort_by{|x| text.count(x)}.uniq.reverse.take(3)
 end
