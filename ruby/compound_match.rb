@@ -15,19 +15,8 @@
 # fn(['top','main','tree','ally','fin','line'], "treetop")              =>   ['top','tree',     [2,0]]
 
 def compound_match(fragments, target)
-    words={}
-    fragments.each.with_index do |word,index|
-      if !words[word] && !!word
-        words[word]=index
-        temp = target.gsub(word,"")
-        if words[temp]
-          if temp+word==target
-            return [temp,word,[words[temp], words[word]]]
-          elsif word+temp==target
-            return [temp,word,[words[word], words[temp]]]
-          end  
-        end
-      end
-    end
-    return nil
+    a = fragments.uniq.combination(2).find { |a, b| a + b == target || b + a == target }
+    return unless a
+    b = [fragments.index(a[0]), fragments.index(a[1])]
+    [a[0], a[1], target.start_with?(a[0]) ? b : b.reverse]
   end
