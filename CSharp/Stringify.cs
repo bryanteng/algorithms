@@ -14,10 +14,5 @@ using System.Collections.Generic;
 
 public static class Kata
 {
-  public static string StringifyDict<TKey, TValue>(Dictionary<TKey, TValue> hash)
-  {
-      var vals = new List<string>();
-      foreach(TKey s in hash.Keys) vals.Add(s+ " = "+hash[s]);
-      return String.Join(",", vals.ToArray());
-  }
+  public static string StringifyDict<TKey, TValue>(Dictionary<TKey, TValue> hash) => String.Join(",",hash.Select(s=> s.Key+" = "+s.Value));
 }
