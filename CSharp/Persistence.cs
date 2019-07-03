@@ -18,14 +18,9 @@ public class Persist
 	{
     int count =0;
     while(n.ToString().Length > 1){
-      n=reduce(n);
+      n=n.ToString().Select(o=> Convert.ToInt32(o)-48).ToArray().Aggregate((a,b)=> a*b);
       count+=1;
     }
     return count;
 	}
-
-  public static int reduce(long n)
-  {
-    return n.ToString().Select(o=> Convert.ToInt32(o)-48).ToArray().Aggregate((a,b)=> a*b);
-  }
 }
