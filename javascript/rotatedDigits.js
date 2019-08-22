@@ -11,7 +11,7 @@
 // Output: 4
 // Explanation:
 // There are four good numbers in the range [1, 10] : 2, 5, 6, 9.
-// Note that 1 and 10 are not good numbers, since they remain unchanged after rotating.
+// Note that 1 and 10 are not good numbers, since they remain unchanged after rotating.git
 
 var rotatedDigits = function(N) {
     let count = 0
