@@ -11,14 +11,12 @@ def mergeTrees(self, t1, t2):
     :type t2: TreeNode
     :rtype: TreeNode
     """
-    if not t1 and not t2:
-        return None
-    if not t1:
+    if t1==None:
         return t2
-    elif not t2:
+    elif t2==None:
         return t1
-    t2.val += t1.val
-    t2.left = self.mergeTrees(t1.left,t2.left)
-    t2.right = self.mergeTrees(t1.right, t2.right)
-    
-    return t2
+    node = TreeNode(t1.val + t2.val)
+    node.left = self.mergeTrees(t1.left,t2.left)
+    node.right = self.mergeTrees(t1.right, t2.right)
+
+    return node
