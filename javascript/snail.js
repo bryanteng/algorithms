@@ -23,14 +23,14 @@ snail = function(array) {
   let y = 0
   if (!array[x][y]) return []
   let ret = [array[x][y]]
-  array[x][y] = 1
+  array[x][y] = 'x'
   while (ret.length < END) {
     let [moveX, moveY] = directs[d]
     x += moveX
     y += moveY
-    while (x >= 0 && x < N && y >= 0 && y < N && array[x][y] != 1) {
+    while (x >= 0 && x < N && y >= 0 && y < N && array[x][y] != "x") {
       ret.push(array[x][y])
-      array[x][y] = 1
+      array[x][y] = 'x'
       x += moveX
       y += moveY
     }
