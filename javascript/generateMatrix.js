@@ -13,7 +13,7 @@
 // ]
 
 var generateMatrix = function(n) {
-  let yArr = "0".repeat(n).split('').map(x=>+x)
+  let yArr = "0".repeat(n).split('')
   let arr = Array.from({length:n}).map(x=>yArr.slice())
   let array = arr.slice()
   const directs = [[0, 1], [1, 0], [0, -1], [-1, 0]];
@@ -28,7 +28,7 @@ var generateMatrix = function(n) {
     let [moveX, moveY] = directs[d]
     x += moveX
     y += moveY
-    while (x >= 0 && x < n && y >= 0 && y < n && array[x][y] == 0) {
+    while (x >= 0 && x < n && y >= 0 && y < n && array[x][y] == "0") {
       array[x][y] = count
       count+=1
       x += moveX
