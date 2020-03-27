@@ -12,16 +12,17 @@
 // Output: 2
 
 var majorityElement = function(nums) {
-    let maj = nums.length/2
-    let numHash = {}
-    if(nums.length == 1) return nums[0]
-    for(let i = 0; i < nums.length; i++){
-      if(numHash[nums[i]]){
-        numHash[nums[i]] +=1
-        if(numHash[nums[i]] > maj) return nums[i]
-      }else{
-        numHash[nums[i]] = 1
-      }
+  let maj = nums.length/2
+  let numHash = {}
+  if(nums.length == 1) return nums[0]
+  for(let i = 0; i < nums.length; i++){
+    if(numHash[nums[i]]){
+      numHash[nums[i]]++
+    }else{
+      numHash[nums[i]] = 1
     }
-    return false
+  }
+  for(let i of Object.keys(numHash) ){
+    if(numHash[i] > maj) return i
+  }  
 };
