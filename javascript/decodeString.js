@@ -11,22 +11,23 @@
 // s = "3[a2[c]]", return "accaccacc".
 // s = "2[abc]3[cd]ef", return "abcabccdcdcdef".
 
-var decodeString = function (s) {
-  let i = 0
-  while (i < s.length) {
-    if (s[i] == "]") {
-      let i2 = i - 1
-      while (s[i2] != "[") {
-        i2 -= 1
+var decodeString = function(s) {
+    let i = 0
+    while(i < s.length){
+      if(s[i] == "]"){
+        let i2 = i-1
+        while(s[i2] != "["){
+          i2-=1
+        }
+        let t = s.slice(i2+1,i)
+        i3 = i2-1
+      while(typeof +s[i3-1] == "number" && !Number.isNaN(+s[i3-1]) && i3 >0 ) i3-=1
+        let ret = t.repeat(s.slice(i3,i2))
+        let firstHalf= s.slice(0,i3)+ret
+        s = firstHalf+s.slice(i+1,s.length)
+        i = firstHalf.length-1
       }
-      let t = s.slice(i2 + 1, i)
-      i3 = i2 - 1
-      while (typeof +s[i3 - 1] == "number" && !Number.isNaN(+s[i3 - 1]) && i3 > 0) i3 -= 1
-      let ret = t.repeat(s.slice(i3, i2))
-      s = s.slice(0, i3) + ret + s.slice(i + 1, s.length)
-      i = i3 - 1
+      i+=1
     }
-    i += 1
-  }
-  return s
+    return s
 };
